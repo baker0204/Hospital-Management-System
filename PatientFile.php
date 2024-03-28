@@ -7,8 +7,9 @@
 		<script type="text/javascript" src="myjs.js"> </script>
 	</head>
 
-	<body>
-		<h1 align="center"> Hospital Manager </h1>
+	<body bgcolor="#A8557A">
+		<img src="img/staroflife.png" width="10%">
+		<h1 align="center"> St. Athanasius Hospital Manager </h1>
 		<h4 align="center"> 2000 W. University Street</h3>
 		<h4 align="center"> Siloam Springs, Arkansas, 72761</h3>
 		<h2> Patient Information</h2>
@@ -25,6 +26,45 @@
 			Address: <textarea name="patientAddress" id="patientAddress"></textarea> 
 			<hr>
 		<h2> Family History</h2>
+			Does anyone in your family have a history of any of the following:<br><br>
+			<table>
+				<tr>
+					<td>
+						<input type="checkbox" id="cancer" name="cancer">
+						<label for="cancer"> Cancer</label>
+					</td>
+					<td>
+						<input type="checkbox" id="diabetes" name="diabetes">
+						<label for="diabetes"> Diabetes</label>
+					</td>
+					<td>
+						<input type="checkbox" id="highblood" name="highblood">
+						<label for="highblood"> High Blood Pressure</label>
+					</td>
+					<td>
+						<input type="checkbox" id="lowblood" name="lowblood">
+						<label for="lowblood"> Low Blood Pressure</label>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="checkbox" id="heartdisease" name="heartdisease">
+						<label for="heartdisease"> Heart Disease</label>
+					</td>
+					<td>
+						<input type="checkbox" id="asthma" name="asthma">
+						<label for="asthma"> Asthma</label>
+					</td>
+					<td>
+						<input type="checkbox" id="seizure" name="seizure">
+						<label for="seizure"> Seizures</label>
+					</td>
+					<td>
+						<input type="checkbox" id="stroke" name="stroke">
+						<label for="stroke"> Strokes</label>
+					</td>
+				</tr>
+			</table>
 		<h2> Allergies</h2>
 		<h2> Medications and Supplements</h2>
 		<h2> Accidents</h2>

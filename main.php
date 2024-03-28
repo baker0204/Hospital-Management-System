@@ -21,7 +21,7 @@
 
         <li class="menu-item"><a href="#" class="drp"> Patient Management </a>
             <div class="menu-content">
-                <a href="newpatient.php">New Patient</a><br>
+                <a href="PatientFile.php">New Patient</a><br>
                 <a href="updatepatient.php">Update Patient</a><br>
                 <a href="billpatient.php">Bill Patient</a><br>
                 <a href="viewpatients.php">View All Patients</a><br>
