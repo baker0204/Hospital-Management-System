@@ -2,9 +2,9 @@
 	<head>
 		<title>Patient File</title>
 		
-		<link rel="stylesheet" href="css.css"/>
+		<link rel="stylesheet" href="css/css.css"/>
 			
-		<script type="text/javascript" src="js.js"> </script>
+		<script type="text/javascript" src="js/js.js"> </script>
 	</head>
 
 	<body>
