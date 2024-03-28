@@ -7,8 +7,10 @@
 		<script type="text/javascript" src="js.js"> </script>
 	</head>
 
-	<body bgcolor="#A8557A">
+	<body>
+		<center>
 		<img src="img/staroflife.png" width="10%">
+		</center>
 		<h1 align="center"> St. Athanasius Hospital Manager </h1>
 		<h4 align="center"> 2000 W. University Street</h3>
 		<h4 align="center"> Siloam Springs, Arkansas, 72761</h3>
@@ -150,8 +152,8 @@
 			 &emsp; &emsp; &emsp;Incident &emsp;&emsp;&emsp;&emsp;&emsp; Date<br>
 		</div>
 		<h2> Surguries</h2>
-		List all surgeries or other severe hospitalizations &emsp;<button id="addAcc" value="addAcc" onclick="javascript:add('accs');">Add Accidents</button>
-		<div id="accs">
+		List all surgeries or other severe hospitalizations &emsp;<button id="addAcc" value="addAcc" onclick="javascript:add('surg');">Add Surgeries</button>
+		<div id="surg">
 			 &emsp; &emsp; &emsp;Incident &emsp;&emsp;&emsp;&emsp;&emsp; Date<br>
 		</div>
 		<h2> Others</h2>
