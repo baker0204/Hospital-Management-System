@@ -4,7 +4,7 @@
 		
 		<link rel="stylesheet" href="css.css"/>
 			
-		<script type="text/javascript" src="myjs.js"> </script>
+		<script type="text/javascript" src="js.js"> </script>
 	</head>
 
 	<body bgcolor="#A8557A">
@@ -22,8 +22,22 @@
 				<option value = "perferNot"> Perfer Not To Say </option>
 			</select>
 			Phone Number: <input type="tel" id="patientPhone" name="patientPhone"/><br><br>
-			Emergency Contact: <textarea name="patientAddress" id="patientAddress"></textarea> 
-			Address: <textarea name="patientAddress" id="patientAddress"></textarea> 
+			<table> 
+				<tr>
+					<td>
+						Emergency Contact:
+					</td>
+					<td>
+						<textarea name="patientAddress" id="patientAddress"></textarea> 
+					</td>
+					<td>
+						Address:
+					</td>
+					<td>
+						<textarea name="patientAddress" id="patientAddress"></textarea> 
+					</td>
+				</tr>
+			</table>
 			<hr>
 		<h2> Family History</h2>
 			Does anyone in your family have a history of any of the following:<br><br>
@@ -65,11 +79,83 @@
 					</td>
 				</tr>
 			</table>
+			<table>
+				<tr>
+					<td>
+						Other:
+					</td>
+					<td>
+						<textarea name="allergies" id="allergies"></textarea> 
+					</td>
+				</tr>
+			</table>
 		<h2> Allergies</h2>
+			Do you have allergies to any of the following:<br><br>
+			<table>
+				<tr>
+					<td>
+						<input type="checkbox" id="lactose" name="lactose">
+						<label for="lactose"> Lactose</label>
+					</td>
+					<td>
+						<input type="checkbox" id="nuts" name="nuts">
+						<label for="nuts"> Tree Nuts</label>
+					</td>
+					<td>
+						<input type="checkbox" id="peanuts" name="peanuts">
+						<label for="peanuts"> Peanuts</label>
+					</td>
+					<td>
+						<input type="checkbox" id="epinephrine" name="epinephrine">
+						<label for="epinephrine"> Epinephrine</label>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="checkbox" id="milk" name="milk">
+						<label for="milk"> Milk</label>
+					</td>
+					<td>
+						<input type="checkbox" id="eggs" name="eggs">
+						<label for="eggs"> Eggs</label>
+					</td>
+					<td>
+						<input type="checkbox" id="wheat" name="wheat">
+						<label for="wheat"> Wheat</label>
+					</td>
+					<td>
+						<input type="checkbox" id="fish" name="fish">
+						<label for="fish"> Fish</label>
+					</td>
+				</tr>
+			</table>
+			<table>
+				<tr>
+					<td>
+						Other:
+					</td>
+					<td>
+						<textarea name="allergies" id="allergies"></textarea> 
+					</td>
+				</tr>
+			</table>
 		<h2> Medications and Supplements</h2>
-		<h2> Accidents</h2>
+		List all medications you are currently taking &emsp;<button id="addMeds" value="addMeds" onclick="javascript:add('meds');">Add Meds</button>
+		<div id="meds">
+			 &emsp; &emsp;Medication Name &emsp;&emsp; Dosage and Frequency<br>
+		</div>
+		<h2> Accidents and Injuries</h2>
+		List all recent accidents or other injuries that required medical attention &emsp;<button id="addAcc" value="addAcc" onclick="javascript:add('accs');">Add Accidents</button>
+		<div id="accs">
+			 &emsp; &emsp; &emsp;Incident &emsp;&emsp;&emsp;&emsp;&emsp; Date<br>
+		</div>
 		<h2> Surguries</h2>
-		<h2> Hospitalizations</h2>
+		List all surgeries or other severe hospitalizations &emsp;<button id="addAcc" value="addAcc" onclick="javascript:add('accs');">Add Accidents</button>
+		<div id="accs">
+			 &emsp; &emsp; &emsp;Incident &emsp;&emsp;&emsp;&emsp;&emsp; Date<br>
+		</div>
 		<h2> Others</h2>
+		List any medical history that has not been mentioned on the form<br>
+		<textarea name="history" id="history"></textarea> 
 	</body>
 </html>
