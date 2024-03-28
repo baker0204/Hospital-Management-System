@@ -21,7 +21,7 @@
 				<option value = ""> </option>
 				<option value = "male"> Male </option>
 				<option value = "female"> Female </option>
-				<option value = "perferNot"> Perfer Not To Say </option>
+				<option value = "perferNot"> Prefer Not To Say </option>
 			</select>
 			Phone Number: <input type="tel" id="patientPhone" name="patientPhone"/><br><br>
 			<table> 
