@@ -1,5 +1,16 @@
 <!DOCTYPE html>
 <html>
+<?php
+	session_start();
+	if(($_SESSION['role'] !="P"))
+	{
+		echo "You do not have permission to access this page or you are not properly logged in. <a href='index.php' >Login Again</a> ";
+		session_destroy();
+		header('location: index.php');
+	}
+	else
+	{
+?>
 <head>
     <title>Hospital Manager</title>
     <link rel="stylesheet" href="css/css.css"/>
@@ -37,6 +48,10 @@
         </li>
     </ul>
     <p align="center" style="font-family: monospace;"> Hospital Management brought to you by Baker and Callum. <br> Logo From Wikimedia Commons<br> 2024 No Rights Reserved...<p>
+<?php
+
+	}
+?>
 </center>
 </body>
 </html>
