@@ -9,3 +9,8 @@ function add(div)
 	var br = document.createElement('br');
 	container.appendChild(br);
 }
+
+function clearForm(formID)
+{
+	document.getElementById(formID).reset();
+}
