@@ -47,6 +47,21 @@
             </div>
         </li>
     </ul>
+    <table align="center">
+        <tr>
+            <td>
+                <img src="img/usericon.png" width="7%"/>
+                <br><p style="font-family: monospace;"> Patient Management <p><br>
+            </td>
+            <td>
+                <img src="img/clockicon.png" width="15%"/>
+                <br><p style="font-family: monospace;"> Appointment Management <p><br>
+            </td>
+            <td>
+                <img src="img/stethoscopeicon.png" width="25%"/>
+                <br><p style="font-family: monospace;"> Doctor Management <p><br>
+            </td>
+        </tr>
     <p align="center" style="font-family: monospace;"> Hospital Management brought to you by Baker and Callum. <br> Logo From Wikimedia Commons<br> 2024 No Rights Reserved...<p>
 <?php
 
