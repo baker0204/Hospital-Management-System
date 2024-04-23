@@ -1,0 +1,8 @@
+MariaDB/hms_table/patient_table/		http://localhost/phpmyadmin/sql.php?db=hms_table&table=patient_table&pos=0
+ Showing rows 0 -  0 (1 total, Query took 0.0003 seconds.)
+
+SELECT * FROM `patient_table`
+
+
+
+1	John Doe	1999-09-22	male	4792332121	Jane Doe (wife): 5018885431	16 Razorback Rd. Fayetteville, AR. 72701	1	0	1	0	0	0	0	0	Mental Illness	0	0	0	0	0	0	0	0	Amoxicillin 	SSRI	50mg	Broken Arm	12/25/2011	Benign tumor removal	06/07/2021	N/A	
