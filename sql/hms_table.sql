@@ -70,7 +70,8 @@ INSERT INTO `doctor_table` (`did`, `name`, `sex`, `specialty`, `address`, `email
 (1, 'Dr. Ryan Reynolds', 'male', 'General Practice', '88 ReallyNiceHouse Ave.', 'dr.reynolds@hospital.com', '4795010899'),
 (2, 'Dr. Baker Loften', 'male', 'Pediatrics', '10 Modest Way.', 'dr.loften@hospital.com', '5018592313'),
 (3, 'Dr. Callum Clark', 'male', 'Radiology', '78 Doctor Rd.', 'dr.clark@hospital.com', '4792346874'),
-(4, 'Dr. Megan Lavender', 'female', 'Anesthesiology', '50 Golfer Ln.', 'dr.Lavender@hospital.com', '5018862145');
+(4, 'Dr. Megan Lavender', 'female', 'Anesthesiology', '50 Golfer Ln.', 'dr.lavender@hospital.com', '5018862145');
+(4, 'Dr. Mason Cary', 'male', 'Podiatry', '50 Tennis Ln.', 'dr.cary@hospital.com', '5018862145');
 
 -- --------------------------------------------------------
 
