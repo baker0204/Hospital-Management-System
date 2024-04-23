@@ -1,7 +1,7 @@
 <html>
 <?php
 	session_start();
-	if(($_SESSION['role'] =="P"))
+	if(($_SESSION['role'] == "P"))
 	{
 		echo "You do not have permission to access this page or you are not properly logged in. <a href='index.php' >Login Again</a> ";
 		session_destroy();
@@ -154,19 +154,25 @@
 					</tr>
 				</table>
 			<h2> Medications and Supplements</h2>
-			List all medications you are currently taking &emsp;<button id="addMeds" value="addMeds" onclick="javascript:add('meds');">Add Meds</button>
+			List all medications you are currently taking &emsp;
+			<button id="addMeds" value="addMeds" onclick="javascript:add('meds');">Add Meds</button>
+			<button id="remMeds" value="remMeds" onclick="javascript:remove('meds');">Remove Meds</button><br>
+			&emsp; &emsp;Medication Name &emsp;&emsp; Dosage and Frequency<br>
 			<div id="meds">
-				 &emsp; &emsp;Medication Name &emsp;&emsp; Dosage and Frequency<br>
 			</div>
 			<h2> Accidents and Injuries</h2>
-			List all recent accidents or other injuries that required medical attention &emsp;<button id="addAcc" value="addAcc" onclick="javascript:add('accs');">Add Accidents</button>
+			List all recent accidents or other injuries that required medical attention &emsp;
+			<button id="addAcc" value="addAcc" onclick="javascript:add('accs');">Add Accidents</button>
+			<button id="remAcc" value="remAcc" onclick="javascript:remove('accs');">Remove Accidents</button><br>
+			 &emsp; &emsp; &emsp;Incident &emsp;&emsp;&emsp;&emsp;&emsp; Date<br>
 			<div id="accs">
-				 &emsp; &emsp; &emsp;Incident &emsp;&emsp;&emsp;&emsp;&emsp; Date<br>
 			</div>
 			<h2> Surguries</h2>
-			List all surgeries or other severe hospitalizations &emsp;<button id="addAcc" value="addAcc" onclick="javascript:add('surg');">Add Surgeries</button>
+			List all surgeries or other severe hospitalizations &emsp;
+			<button id="addSurg" value="addSurg" onclick="javascript:add('surg');">Add Surgeries</button>
+			<button id="remSurg" value="remSurg" onclick="javascript:remove('surg');">Remove Surgeries</button><br>
+			&emsp; &emsp; &emsp;Incident &emsp;&emsp;&emsp;&emsp;&emsp; Date<br>
 			<div id="surg">
-				 &emsp; &emsp; &emsp;Incident &emsp;&emsp;&emsp;&emsp;&emsp; Date<br>
 			</div>
 			<h2> Others</h2>
 			List any medical history that has not been mentioned on the form<br>
