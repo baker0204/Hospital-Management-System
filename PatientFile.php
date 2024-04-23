@@ -1,7 +1,7 @@
 <html>
 <?php
 	session_start();
-	if(($_SESSION['role'] !="P"))
+	if(($_SESSION['role'] =="P"))
 	{
 		echo "You do not have permission to access this page or you are not properly logged in. <a href='index.php' >Login Again</a> ";
 		session_destroy();
