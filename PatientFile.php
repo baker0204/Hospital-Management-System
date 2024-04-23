@@ -155,22 +155,22 @@
 				</table>
 			<h2> Medications and Supplements</h2>
 			List all medications you are currently taking &emsp;
-			<button id="addMeds" value="addMeds" onclick="javascript:add('meds');">Add Meds</button>
-			<button id="remMeds" value="remMeds" onclick="javascript:remove('meds');">Remove Meds</button><br>
+			<button type="button" id="addMeds" value="addMeds" onclick="javascript:add('meds');">Add Meds</button>
+			<button type="button" id="remMeds" value="remMeds" onclick="javascript:remove('meds');">Remove Meds</button><br>
 			&emsp; &emsp;Medication Name &emsp;&emsp; Dosage and Frequency<br>
 			<div id="meds">
 			</div>
 			<h2> Accidents and Injuries</h2>
 			List all recent accidents or other injuries that required medical attention &emsp;
-			<button id="addAcc" value="addAcc" onclick="javascript:add('accs');">Add Accidents</button>
-			<button id="remAcc" value="remAcc" onclick="javascript:remove('accs');">Remove Accidents</button><br>
+			<button type="button" id="addAcc" value="addAcc" onclick="javascript:add('accs');">Add Accidents</button>
+			<button type="button" id="remAcc" value="remAcc" onclick="javascript:remove('accs');">Remove Accidents</button><br>
 			 &emsp; &emsp; &emsp;Incident &emsp;&emsp;&emsp;&emsp;&emsp; Date<br>
 			<div id="accs">
 			</div>
 			<h2> Surguries</h2>
 			List all surgeries or other severe hospitalizations &emsp;
-			<button id="addSurg" value="addSurg" onclick="javascript:add('surg');">Add Surgeries</button>
-			<button id="remSurg" value="remSurg" onclick="javascript:remove('surg');">Remove Surgeries</button><br>
+			<button type="button" id="addSurg" value="addSurg" onclick="javascript:add('surg');">Add Surgeries</button>
+			<button type="button" id="remSurg" value="remSurg" onclick="javascript:remove('surg');">Remove Surgeries</button><br>
 			&emsp; &emsp; &emsp;Incident &emsp;&emsp;&emsp;&emsp;&emsp; Date<br>
 			<div id="surg">
 			</div>
