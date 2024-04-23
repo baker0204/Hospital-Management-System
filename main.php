@@ -2,7 +2,8 @@
 <html>
 <?php
 	session_start();
-	if(($_SESSION['role'] !="P"))
+	$roles = array("A", "P", "D");
+	if(!in_array($_SESSION['role'], $roles)) //everyone who has been verified can access this page
 	{
 		echo "You do not have permission to access this page or you are not properly logged in. <a href='index.php' >Login Again</a> ";
 		session_destroy();

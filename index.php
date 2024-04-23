@@ -10,7 +10,7 @@
 	<body>
 	<form id="login" method="POST" action="redirect.php">
 		<table border=0 width=25%>
-			<tr><td>Username:</td><td><input type="text" name="userid" id="id"/></td></tr>
+			<tr><td>Username:</td><td><input type="text" name="uid" id="uid"/></td></tr>
 			<tr><td>Password:</td><td><input type="password" name="pwd" id="pwd" /></td></tr>
 			<tr><td></td><td><input type="submit" value="Login" />    <input type="button" value="Reset" onclick="clearForm('login')"/></td></tr>
 		</table>
