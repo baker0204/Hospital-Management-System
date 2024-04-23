@@ -1,15 +1,4 @@
 <html>
-<?php
-	session_start();
-	if(($_SESSION['role'] =="P"))
-	{
-		echo "You do not have permission to access this page or you are not properly logged in. <a href='index.php' >Login Again</a> ";
-		session_destroy();
-		header('location: index.php');
-	}
-	else
-	{
-?>
 	<head>
 		<title>Patient File</title>
 		
@@ -175,9 +164,5 @@
 			<input type="submit" value="submit">
 			</center>
 		</form>
-<?php
-
-	}
-?>
 	</body>
 </html>
