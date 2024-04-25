@@ -25,7 +25,7 @@
 		<h1 align="center"> St. Athanasius Hospital Manager </h1>
 		<h4 align="center"> 2000 W. University Street</h3>
 		<h4 align="center"> Siloam Springs, Arkansas, 72761</h3>
-		<form>
+		<form method="POST" action="addPatient.php">
 			<h2> Patient Information</h2>
 				Name: <input name="patientName" id="patientName"/> 
 				Date of Birth: <input type="date" name="patientDOB" id="patientDOB"/><br><br>
@@ -42,7 +42,7 @@
 							Emergency Contact:
 						</td>
 						<td>
-							<textarea name="patientAddress" id="patientAddress"></textarea> 
+							<textarea name="emergencyContact" id="emergencyContact"></textarea> 
 						</td>
 						<td>
 							Address:
@@ -99,7 +99,7 @@
 							Other:
 						</td>
 						<td>
-							<textarea name="allergies" id="allergies"></textarea> 
+							<textarea name="otherHistory" id="otherHistory"></textarea> 
 						</td>
 					</tr>
 				</table>
@@ -149,29 +149,32 @@
 							Other:
 						</td>
 						<td>
-							<textarea name="allergies" id="allergies"></textarea> 
+							<textarea name="otherAllergies" id="otherAllergies"></textarea> 
 						</td>
 					</tr>
 				</table>
 			<h2> Medications and Supplements</h2>
 			List all medications you are currently taking &emsp;
-			<button type="button" id="addMeds" value="addMeds" onclick="javascript:add('meds');">Add Meds</button>
-			<button type="button" id="remMeds" value="remMeds" onclick="javascript:remove('meds');">Remove Meds</button><br>
+			<button type="button" id="addMeds" value="addMeds" onclick="javascript:add('meds', 'medNum');">Add Meds</button>
+			<button type="button" id="remMeds" value="remMeds" onclick="javascript:remove('meds', 'medNum');">Remove Meds</button><br>
 			&emsp; &emsp;Medication Name &emsp;&emsp; Dosage and Frequency<br>
+			<input type="text" id="medNum">
 			<div id="meds">
 			</div>
 			<h2> Accidents and Injuries</h2>
 			List all recent accidents or other injuries that required medical attention &emsp;
-			<button type="button" id="addAcc" value="addAcc" onclick="javascript:add('accs');">Add Accidents</button>
-			<button type="button" id="remAcc" value="remAcc" onclick="javascript:remove('accs');">Remove Accidents</button><br>
+			<button type="button" id="addAcc" value="addAcc" onclick="javascript:add('accs', 'accNum');">Add Accidents</button>
+			<button type="button" id="remAcc" value="remAcc" onclick="javascript:remove('accs', 'accNum');">Remove Accidents</button><br>
 			 &emsp; &emsp; &emsp;Incident &emsp;&emsp;&emsp;&emsp;&emsp; Date<br>
+			<input type="text" id="accNum">
 			<div id="accs">
 			</div>
 			<h2> Surguries</h2>
 			List all surgeries or other severe hospitalizations &emsp;
-			<button type="button" id="addSurg" value="addSurg" onclick="javascript:add('surg');">Add Surgeries</button>
-			<button type="button" id="remSurg" value="remSurg" onclick="javascript:remove('surg');">Remove Surgeries</button><br>
+			<button type="button" id="addSurg" value="addSurg" onclick="javascript:add('surg', 'surgNum');">Add Surgeries</button>
+			<button type="button" id="remSurg" value="remSurg" onclick="javascript:remove('surg', 'surgNum');">Remove Surgeries</button><br>
 			&emsp; &emsp; &emsp;Incident &emsp;&emsp;&emsp;&emsp;&emsp; Date<br>
+			<input type="text" id="surgNum">
 			<div id="surg">
 			</div>
 			<h2> Others</h2>
