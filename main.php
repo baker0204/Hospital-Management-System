@@ -13,7 +13,7 @@
 	{
 ?>
 <head>
-    <title>Hospital Manager</title>
+    <title>St. Athanasius Home</title>
     <link rel="stylesheet" href="css/css.css"/>
     <!--<script type="text/javascript" src="js/js.js"></script>-->
 </head>
@@ -34,7 +34,6 @@
         <li class="menu-item"><a href="#" class="drp"> Patient Management </a>
             <div class="menu-content">
                 <a href="PatientFile.php">New Patient</a><br>
-                <a href="updatepatient.php">Update Patient</a><br>
                 <a href="billpatient.php">Bill Patient</a><br>
                 <a href="viewpatients.php">View All Patients</a><br>
             </div>

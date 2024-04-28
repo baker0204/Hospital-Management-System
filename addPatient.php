@@ -1,8 +1,8 @@
 <?php
 	include ("../db_connection.php");
 	session_start();
-	
-	if(($_SESSION['role'] == "P"))
+	$roles = array("A", "D");
+	if(!in_array($_SESSION['role'], $roles))
 	{
 		echo "You are trying to access a BAD Page. <a href='../login.php' >Login Again</a> ";
 		session_destroy();
@@ -41,12 +41,12 @@
 		{
 			try 
 			{
-				$medArea .= $_POST["meds".1.$i];
+				$medArea .= $_POST["meds"."1".$i];
 			}
 			catch (Exception $e){}
 			try 
 			{
-				$doseArea .= $_POST["meds".2.$i];
+				$doseArea .= $_POST["meds"."2".$i];
 			}
 			catch (Exception $e2){}
 		}
@@ -57,12 +57,12 @@
 		{
 			try 
 			{
-				$accArea .= $_POST["accs".1.$i];
+				$accArea .= $_POST["accs"."1".$i];
 			}
 			catch (Exception $e){}
 			try 
 			{
-				$dateAccArea .= $_POST["accs".2.$i];
+				$dateAccArea .= $_POST["accs"."2".$i];
 			}
 			catch (Exception $e2){}
 		}
@@ -73,12 +73,12 @@
 		{
 			try 
 			{
-				$surgArea .= $_POST["accs".1.$i];
+				$surgArea .= $_POST["accs"."1".$i];
 			}
 			catch (Exception $e){}
 			try 
 			{
-				$dateSurgArea .= $_POST["accs".2.$i];
+				$dateSurgArea .= $_POST["accs"."2".$i];
 			}
 			catch (Exception $e2){}
 		}
