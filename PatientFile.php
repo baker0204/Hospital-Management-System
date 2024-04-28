@@ -1,7 +1,8 @@
 <html>
 <?php
 	session_start();
-	if(($_SESSION['role'] == "P"))
+	$roles = array("A", "D");
+	if(!in_array($_SESSION['role'], $roles))
 	{
 		echo "You do not have permission to access this page or you are not properly logged in. <a href='index.php' >Login Again</a> ";
 		session_destroy();
@@ -11,20 +12,63 @@
 	{
 ?>
 	<head>
-		<title>Patient File</title>
+		<title>St. Athanasius New Patient File</title>
 		
 		<link rel="stylesheet" href="css/css.css"/>
 			
 		<script type="text/javascript" src="js/js.js"> </script>
 	</head>
 
-	<body>
-		<center>
-		<img src="img/staroflife.png" width="10%">
-		</center>
-		<h1 align="center"> St. Athanasius Hospital Manager </h1>
-		<h4 align="center"> 2000 W. University Street</h3>
-		<h4 align="center"> Siloam Springs, Arkansas, 72761</h3>
+	<center>
+    <img src="img/staroflife.png" width="10%">
+    <br>
+    <h1 align="center"> St. Athanasius Hospital </h1>
+    <ul>
+        <li class="menu-item"><a href="#" class="drp"> Appointment Management </a>
+            <div class="menu-content">
+                <a href="newappoint.php">New Appointment</a><br>
+                <a href="updateappoint.php">Update Appointment</a><br>
+                <a href="viewappoint.php">View All Appointments</a><br>
+            </div>
+        </li>
+
+        <li class="menu-item"><a href="#" class="drp"> Patient Management </a>
+            <div class="menu-content">
+                <a href="PatientFile.php">New Patient</a><br>
+                <a href="billpatient.php">Bill Patient</a><br>
+                <a href="viewpatients.php">View All Patients</a><br>
+            </div>
+        </li>
+
+        <li class="menu-item"><a href="#" class="drp">Doctor Management </a>
+            <div class="menu-content">
+                <a href="adduser.php">Add Doctor</a><br>
+                <a href="removeuser.php">Remove Doctor</a><br>
+                <a href="displayusers.php">Display all Doctors</a><br>
+            </div>
+        </li>
+    </ul>
+    <table align="center">
+        <tr>
+            <td>
+                <img src="img/usericon.png" width="7%"/>
+                <br><p style="font-family: monospace;"> Patient Management <p><br>
+            </td>
+            <td>
+                <img src="img/clockicon.png" width="15%"/>
+                <br><p style="font-family: monospace;"> Appointment Management <p><br>
+            </td>
+            <td>
+                <img src="img/stethoscopeicon.png" width="25%"/>
+                <br><p style="font-family: monospace;"> Doctor Management <p><br>
+            </td>
+        </tr>
+    <p align="center" style="font-family: monospace;"> Hospital Management brought to you by Baker and Callum. <br> Logo From Wikimedia Commons<br> 2024 No Rights Reserved...<p>
+<?php
+
+	}
+?>
+</center>
 		<form method="POST" action="addPatient.php">
 			<h2> Patient Information</h2>
 				Name: <input name="patientName" id="patientName"/> 
@@ -158,7 +202,7 @@
 			<button type="button" id="addMeds" value="addMeds" onclick="javascript:add('meds', 'medNum');">Add Meds</button>
 			<button type="button" id="remMeds" value="remMeds" onclick="javascript:remove('meds', 'medNum');">Remove Meds</button><br>
 			&emsp; &emsp;Medication Name &emsp;&emsp; Dosage and Frequency<br>
-			<input type="text" id="medNum">
+			<input type="text" id="medNum" class="menu-content">
 			<div id="meds">
 			</div>
 			<h2> Accidents and Injuries</h2>
@@ -166,7 +210,7 @@
 			<button type="button" id="addAcc" value="addAcc" onclick="javascript:add('accs', 'accNum');">Add Accidents</button>
 			<button type="button" id="remAcc" value="remAcc" onclick="javascript:remove('accs', 'accNum');">Remove Accidents</button><br>
 			 &emsp; &emsp; &emsp;Incident &emsp;&emsp;&emsp;&emsp;&emsp; Date<br>
-			<input type="text" id="accNum">
+			<input type="text" id="accNum" class="menu-content">
 			<div id="accs">
 			</div>
 			<h2> Surguries</h2>
@@ -174,12 +218,12 @@
 			<button type="button" id="addSurg" value="addSurg" onclick="javascript:add('surg', 'surgNum');">Add Surgeries</button>
 			<button type="button" id="remSurg" value="remSurg" onclick="javascript:remove('surg', 'surgNum');">Remove Surgeries</button><br>
 			&emsp; &emsp; &emsp;Incident &emsp;&emsp;&emsp;&emsp;&emsp; Date<br>
-			<input type="text" id="surgNum">
+			<input type="text" id="surgNum" class="menu-content">
 			<div id="surg">
 			</div>
 			<h2> Others</h2>
 			List any medical history that has not been mentioned on the form<br>
-			<textarea name="history" id="history"></textarea> <br>
+			<textarea name="history" id="history" display="hidden"></textarea> <br>
 			<center>
 			<input type="submit" value="submit">
 			</center>

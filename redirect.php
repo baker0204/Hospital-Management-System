@@ -20,6 +20,7 @@
 	if (!$verify)
 	{
 		echo "Error, invalid credentials";
+		$_SESSION['role'] = "I";
 		header("Location: index.php");
 	}
 

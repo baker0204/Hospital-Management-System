@@ -1,4 +1,14 @@
 <html>
+<?php
+	session_start();
+	if(($_SESSION['role'] == "I"))
+	{
+		?>
+		<script type="text/javascript"> alert("Invalid Login, Try Again"); </script>
+		<?php
+	}
+	$_SESSION['role'] = "";
+	?>
 	<head>
 		<title>St. Athanasius Login</title>
 		
@@ -7,7 +17,7 @@
 		<script type="text/javascript" src="js/js.js"> </script>
 	</head>
 
-	<body>
+	<body bgcolor="#eceff4">
 	<center>
 	<br>
 	<img src="img/staroflife.png" width="10%">
