@@ -18,7 +18,7 @@
 			
 		<script type="text/javascript" src="js/js.js"> </script>
 	</head>
-
+<body bgcolor="#eceff4" >
 	<center>
     <img src="img/staroflife.png" width="10%">
     <br>
@@ -48,26 +48,6 @@
             </div>
         </li>
     </ul>
-    <table align="center">
-        <tr>
-            <td>
-                <img src="img/usericon.png" width="7%"/>
-                <br><p style="font-family: monospace;"> Patient Management <p><br>
-            </td>
-            <td>
-                <img src="img/clockicon.png" width="15%"/>
-                <br><p style="font-family: monospace;"> Appointment Management <p><br>
-            </td>
-            <td>
-                <img src="img/stethoscopeicon.png" width="25%"/>
-                <br><p style="font-family: monospace;"> Doctor Management <p><br>
-            </td>
-        </tr>
-    <p align="center" style="font-family: monospace;"> Hospital Management brought to you by Baker and Callum. <br> Logo From Wikimedia Commons<br> 2024 No Rights Reserved...<p>
-<?php
-
-	}
-?>
 </center>
 		<form method="POST" action="addPatient.php">
 			<h2> Patient Information</h2>
@@ -98,7 +78,7 @@
 				</table>
 				<hr>
 			<h2> Family History</h2>
-				Does anyone in your family have a history of any of the following:<br><br>
+				Does anyone in the patients' family have a history of any of the following:<br><br>
 				<table>
 					<tr>
 						<td>
@@ -148,7 +128,7 @@
 					</tr>
 				</table>
 			<h2> Allergies</h2>
-				Do you have allergies to any of the following:<br><br>
+				Does the patient have allergies to any of the following:<br><br>
 				<table>
 					<tr>
 						<td>
@@ -198,9 +178,9 @@
 					</tr>
 				</table>
 			<h2> Medications and Supplements</h2>
-			List all medications you are currently taking &emsp;
-			<button type="button" id="addMeds" value="addMeds" onclick="javascript:add('meds', 'medNum');">Add Meds</button>
-			<button type="button" id="remMeds" value="remMeds" onclick="javascript:remove('meds', 'medNum');">Remove Meds</button><br>
+			List all medications patient is currently taking &emsp;
+			<button type="button" id="addMeds" value="addMeds" onclick="add('meds')">Add Meds</button>
+			<button type="button" id="remMeds" value="remMeds" onclick="remove('meds', 'medNum')">Remove Meds</button><br>
 			&emsp; &emsp;Medication Name &emsp;&emsp; Dosage and Frequency<br>
 			<input type="text" id="medNum" class="menu-content">
 			<div id="meds">
@@ -223,11 +203,27 @@
 			</div>
 			<h2> Others</h2>
 			List any medical history that has not been mentioned on the form<br>
-			<textarea name="history" id="history" display="hidden"></textarea> <br>
+			<textarea name="history" id="history"></textarea> <br>
 			<center>
 			<input type="submit" value="submit">
 			</center>
 		</form>
+    <table align="center">
+        <tr>
+            <td>
+                <img src="img/usericon.png" width="7%"/>
+                <br><p style="font-family: monospace;"> Patient Management <p><br>
+            </td>
+            <td>
+                <img src="img/clockicon.png" width="15%"/>
+                <br><p style="font-family: monospace;"> Appointment Management <p><br>
+            </td>
+            <td>
+                <img src="img/stethoscopeicon.png" width="25%"/>
+                <br><p style="font-family: monospace;"> Doctor Management <p><br>
+            </td>
+        </tr>
+    <p align="center" style="font-family: monospace;"> Hospital Management brought to you by Baker and Callum. <br> Logo From Wikimedia Commons<br> 2024 No Rights Reserved...<p>
 <?php
 
 	}

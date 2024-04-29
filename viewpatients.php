@@ -35,7 +35,6 @@
         <li class="menu-item"><a href="#" class="drp"> Patient Management </a>
             <div class="menu-content">
                 <a href="PatientFile.php">New Patient</a><br>
-                <a href="updatepatient.php">Update Patient</a><br>
                 <a href="billpatient.php">Bill Patient</a><br>
                 <a href="viewpatients.php">View All Patients</a><br>
             </div>
@@ -70,7 +69,12 @@
 				<td style="border-right:1px solid black;"> <?php echo $row_product["phone_num"]?> </td>
 				<td style="border-right:1px solid black;"> <?php echo $row_product["em_contact"]?> </td>
 				<td style="border-right:1px solid black;"> <?php echo $row_product["address"]?> </td>
-				<td> <button onclick="location.href='updatepatient.php'"> Edit Patient </button></td>
+				<td>
+					<form method="POST" action="updatepatient.php"> 
+						<input id="pid" name="pid" type="text" style="display:none;" value="<?php echo $row_product['pid']?>"/>
+						<input type="submit" value="Update Patient"/>
+					</form>
+				</td>
 			</tr>
 	<?php
 		}
