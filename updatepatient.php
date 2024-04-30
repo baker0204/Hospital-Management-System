@@ -26,7 +26,7 @@
 			
 		<script type="text/javascript" src="js/js.js"> </script>
 	</head>
-<body bgcolor="#eceff4" onload="preload(<?php echo $row_product["sex"];?>">
+<body bgcolor="#eceff4">
 	<center>
     <img src="img/staroflife.png" width="10%">
     <br>
@@ -60,12 +60,12 @@
 		<form method="POST" action="editPatient.php">
 			<h2> Patient Information</h2>
 				Name: <input name="patientName" id="patientName" value="<?php echo $row_product['name']; ?>"/> 
-				Date of Birth: <input type="date" name="patientDOB" id="patientDOB" value="<?php echo $row_product['dob']; ?>"/><br><br>
+				Date of Birth: <input type="date" name="patientDOB" id="patientDOB" value="male"/><br><br>
 				Sex: <select name="patientSex" id="patientSex" required> 
 					<option value = ""> </option>
-					<option value = "male"> Male </option>
-					<option value = "female"> Female </option>
-					<option value = "perferNot"> Prefer Not To Say </option>
+					<option value = "male" <?php selectedCheck($row_product["sex"], "male"); ?>> Male </option>
+					<option value = "female" <?php selectedCheck($row_product["sex"], "female"); ?>> Female </option>
+					<option value = "perferNot" <?php selectedCheck($row_product["sex"], "perferNot"); ?>> Prefer Not To Say </option>
 				</select>
 				Phone Number: <input type="tel" id="patientPhone" name="patientPhone" value="<?php echo $row_product['phone_num']; ?>"/><br><br>
 				<table> 
@@ -193,6 +193,27 @@
 			&emsp; &emsp;Medication Name &emsp;&emsp; Dosage and Frequency<br>
 			<input type="text" id="medNum" class="menu-content" value="<?php echo $row_product['otherallg']; ?>">
 			<div id="meds">
+			<?php 
+				$items = explode(",", $row_product['medication']);
+				if (count($items) == 0)
+				{
+					echo "<script type='text/javascript'> add('meds', 'medNum');";
+					echo "document.getElementById('meds').firstChild.innerHTML = 'N/A';";
+					echo "document.getElementById('meds').childNodes[1].innerHTML = 'N/A';";
+					echo "</script>";
+				}
+				else
+				{
+					for ($i = 0; $i < count($items)*2; $i++)
+					{
+						echo "<script type='text/javascript'> add('meds', 'medNum');";
+						echo "document.getElementById('meds').childNodes[i].innerHTML = " . $items[i] . ";";
+						$i++;
+						echo "document.getElementById('meds').childNodes[i].innerHTML = " . $items . ";";
+						echo "</script>";
+					}
+				}
+			?>
 			</div>
 			<h2> Accidents and Injuries</h2>
 			List all recent accidents or other injuries that required medical attention &emsp;
@@ -201,6 +222,27 @@
 			 &emsp; &emsp; &emsp;Incident &emsp;&emsp;&emsp;&emsp;&emsp; Date<br>
 			<input type="text" id="accNum" class="menu-content">
 			<div id="accs">
+			<?php 
+				$items2 = explode(",", $row_product['incident']);
+				if (count($items2) == 0)
+				{
+					echo "<script type='text/javascript'> add('acc', 'accNum');";
+					echo "document.getElementById('acc').firstChild.innerHTML = 'N/A';";
+					echo "document.getElementById('acc').childNodes[1].innerHTML = 'N/A';";
+					echo "</script>";
+				}
+				else
+				{
+					for ($i = 0; $i < count($items2)*2; $i++)
+					{
+						echo "<script type='text/javascript'> add('acc', 'accNum');";
+						echo "document.getElementById('acc').childNodes[i].innerHTML = " . $items2[i] . ";";
+						$i++;
+						echo "document.getElementById('acc').childNodes[i].innerHTML = " . $items2 . ";";
+						echo "</script>";
+					}
+				}
+			?>
 			</div>
 			<h2> Surguries</h2>
 			List all surgeries or other severe hospitalizations &emsp;
@@ -209,10 +251,31 @@
 			&emsp; &emsp; &emsp;Incident &emsp;&emsp;&emsp;&emsp;&emsp; Date<br>
 			<input type="text" id="surgNum" class="menu-content">
 			<div id="surg">
+			<?php 
+				$items3 = explode(",", $row_product['surgery']);
+				if (count($items3) == 0)
+				{
+					echo "<script type='text/javascript'> add('surg', 'surgNum');";
+					echo "document.getElementById('surg').firstChild.innerHTML = 'N/A';";
+					echo "document.getElementById('surg').childNodes[1].innerHTML = 'N/A';";
+					echo "</script>";
+				}
+				else
+				{
+					for ($i = 0; $i < count($items3)*2; $i++)
+					{
+						echo "<script type='text/javascript'> add('surg', 'surgNum');";
+						echo "document.getElementById('surg').childNodes[i].innerHTML = " . $items3[i] . ";";
+						$i++;
+						echo "document.getElementById('surg').childNodes[i].innerHTML = " . $items3 . ";";
+						echo "</script>";
+					}
+				}
+			?>
 			</div>
 			<h2> Others</h2>
 			List any medical history that has not been mentioned on the form<br>
-			<textarea name="history" id="history" display="hidden"></textarea> <br>
+			<textarea name="history" id="history"><?php echo $row_product['other']; ?></textarea> <br>
 			<center>
 			<input type="submit" value="submit">
 			</center>

@@ -182,7 +182,7 @@
 			<button type="button" id="addMeds" value="addMeds" onclick="add('meds')">Add Meds</button>
 			<button type="button" id="remMeds" value="remMeds" onclick="remove('meds', 'medNum')">Remove Meds</button><br>
 			&emsp; &emsp;Medication Name &emsp;&emsp; Dosage and Frequency<br>
-			<input type="text" id="medNum" class="menu-content">
+			<input type="text" id="medNum" class="menu-content"/>
 			<div id="meds">
 			</div>
 			<h2> Accidents and Injuries</h2>

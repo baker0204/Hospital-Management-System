@@ -19,9 +19,8 @@ function add(div, divCounter)
 	var br = document.createElement('br');
 	container.appendChild(br);
 	
-	childNum = container.childElementCount;
 	var counter = document.getElementById(divCounter);
-	counter.innerHTML = childNum
+	counter.value = container.childElementCount;
 }
 
 function remove(div)
@@ -36,14 +35,4 @@ function clearForm(formID)
 {
 	document.getElementById(formID).reset();
 }
-
-function preload(gender)
-{
-	var mySelect = document.getElementById("patientSex");
-	for(var i, j = 0; i = mySelect.options[j]; j++) {
-		if(i.value == gender) {
-			mySelect.selectedIndex = j;
-			break;
-		}
-	}
 }
