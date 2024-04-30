@@ -3,7 +3,7 @@
 <?php
 	include ("db_connect.php");
 	session_start();
-	$roles = array("A", "D");
+	$roles = array("A");
 	if(!in_array($_SESSION['role'], $roles)) //everyone who has been verified can access this page
 	{
 		echo "You do not have permission to access this page or you are not properly logged in. <a href='index.php' >Login Again</a> ";
@@ -49,30 +49,26 @@
     </ul>
 	<h1> All Patients </h1>
 	<table style="border:1px solid black;">
-		<th> Name </th>
-		<th> Date of Birth </th>
-		<th> Sex </th>
-		<th> Phone Number </th>
-		<th> Emergency Contact </th>
-		<th> Address </th>
+		<th> Patient Name </th>
+		<th> Date of Appointment </th>
+		<th> Doctor Assigned </th>
+		<th> Info </th>
 	 <?php
 		$i = 0;
-		$sql_product="SELECT * FROM patient_table";
+		$sql_product="SELECT * FROM appointment_table";
 		$result_product=$connect->query($sql_product);
 		while($row_product = $result_product->fetch_assoc())
 		{
 	?>
 			<tr style="border-top:1px solid black;">
-				<td style="border-right:1px solid black;"> <?php echo $row_product["name"]?> </td>
-				<td style="border-right:1px solid black;"> <?php echo $row_product["dob"]?> </td>
-				<td style="border-right:1px solid black;"> <?php echo $row_product["sex"]?> </td>
-				<td style="border-right:1px solid black;"> <?php echo $row_product["phone_num"]?> </td>
-				<td style="border-right:1px solid black;"> <?php echo $row_product["em_contact"]?> </td>
-				<td style="border-right:1px solid black;"> <?php echo $row_product["address"]?> </td>
+				<td style="border-right:1px solid black;"> <?php echo $row_product["patient_name"]?> </td>
+				<td style="border-right:1px solid black;"> <?php echo $row_product["date_time"]?> </td>
+				<td style="border-right:1px solid black;"> <?php echo $row_product["doctor_name"]?> </td>
+				<td style="border-right:1px solid black;"> <?php echo $row_product["info"]?> </td>
 				<td>
-					<form method="POST" action="updatepatient.php"> 
-						<input id="pid" name="pid" type="text" style="display:none;" value="<?php echo $row_product['pid']?>"/>
-						<input type="submit" value="Update Patient"/>
+					<form method="POST" action="delAppt.php"> 
+						<input name="aid" id="aid" type="text" style="display:none" value="<?php echo $row_product["aid"]; ?>"/>
+						<input type="submit" value="Remove Appointment"/>
 					</form>
 				</td>
 			</tr>
@@ -97,7 +93,6 @@
         </tr>
     <p align="center" style="font-family: monospace;"> Hospital Management brought to you by Baker and Callum. <br> Logo From Wikimedia Commons<br> 2024 No Rights Reserved...<p>
 <?php
-
 	}
 ?>
 </center>

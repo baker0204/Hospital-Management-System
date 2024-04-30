@@ -26,7 +26,7 @@
         <li class="menu-item"><a href="#" class="drp"> Appointment Management </a>
             <div class="menu-content">
                 <a href="newappoint.php">New Appointment</a><br>
-                <a href="updateappoint.php">Update Appointment</a><br>
+                <a href="removeAppt.php">Remove Appointment</a><br>
                 <a href="viewappoint.php">View All Appointments</a><br>
             </div>
         </li>
@@ -41,9 +41,9 @@
 
         <li class="menu-item"><a href="#" class="drp">Doctor Management </a>
             <div class="menu-content">
-                <a href="adduser.php">Add Doctor</a><br>
-                <a href="removeuser.php">Remove Doctor</a><br>
-                <a href="displayusers.php">Display all Doctors</a><br>
+                <a href="adddoctor.php">Add Doctor</a><br>
+                <a href="removedoctor.php">Remove Doctor</a><br>
+                <a href="viewdoctor.php">Display all Doctors</a><br>
             </div>
         </li>
     </ul>

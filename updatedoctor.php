@@ -1,23 +1,31 @@
 <!DOCTYPE html>
 <html>
-<?php
-	include ("db_connect.php");
-	session_start();
-	$roles = array("A", "D");
-	if(!in_array($_SESSION['role'], $roles)) //everyone who has been verified can access this page
-	{
-		echo "You do not have permission to access this page or you are not properly logged in. <a href='index.php' >Login Again</a> ";
-		session_destroy();
-		header('location: index.php');
-	}
-	else
-	{
-?>
+<body>
 <head>
-    <title>Hospital Manager</title>
+    <title>St. Athanasius Doctor Management</title>
     <link rel="stylesheet" href="css/css.css"/>
-    <!--<script type="text/javascript" src="js/js.js"></script>-->
+    <script type="text/javascript" src="js/js.js"></script>
 </head>
+<?php
+include ("db_connect.php");
+session_start();
+$roles = array("A");
+if(!in_array($_SESSION['role'], $roles))
+{
+    echo "You do not have permission to access this page or you are not properly logged in. <a href='index.php' >Login Again</a> ";
+    session_destroy();
+    header('location: index.php');
+}
+else
+{
+	$did = $_POST["did"] ?? null;
+	$sql_product="SELECT * FROM doctor_table";
+	$result_product=$connect->query($sql_product);
+	while($row_product = $result_product->fetch_assoc())
+	{
+		if ($row_product["did"] == $did)
+		{
+?>
 <body bgcolor="#eceff4">
 <center>
     <img src="img/staroflife.png" width="10%">
@@ -39,6 +47,7 @@
                 <a href="viewpatients.php">View All Patients</a><br>
             </div>
         </li>
+
         <li class="menu-item"><a href="#" class="drp">Doctor Management </a>
             <div class="menu-content">
                 <a href="adddoctor.php">Add Doctor</a><br>
@@ -47,38 +56,29 @@
             </div>
         </li>
     </ul>
-	<h1> All Patients </h1>
-	<table style="border:1px solid black;">
-		<th> Name </th>
-		<th> Date of Birth </th>
-		<th> Sex </th>
-		<th> Phone Number </th>
-		<th> Emergency Contact </th>
-		<th> Address </th>
-	 <?php
-		$i = 0;
-		$sql_product="SELECT * FROM patient_table";
-		$result_product=$connect->query($sql_product);
-		while($row_product = $result_product->fetch_assoc())
-		{
-	?>
-			<tr style="border-top:1px solid black;">
-				<td style="border-right:1px solid black;"> <?php echo $row_product["name"]?> </td>
-				<td style="border-right:1px solid black;"> <?php echo $row_product["dob"]?> </td>
-				<td style="border-right:1px solid black;"> <?php echo $row_product["sex"]?> </td>
-				<td style="border-right:1px solid black;"> <?php echo $row_product["phone_num"]?> </td>
-				<td style="border-right:1px solid black;"> <?php echo $row_product["em_contact"]?> </td>
-				<td style="border-right:1px solid black;"> <?php echo $row_product["address"]?> </td>
-				<td>
-					<form method="POST" action="updatepatient.php"> 
-						<input id="pid" name="pid" type="text" style="display:none;" value="<?php echo $row_product['pid']?>"/>
-						<input type="submit" value="Update Patient"/>
-					</form>
-				</td>
-			</tr>
-	<?php
-		}
-	?>
+</center>
+<center>
+<form method="post" action="docDB.php">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name" value="<?php echo $row_product['name']; ?>"><br>
+    <label for="sex">Sex:</label><br>
+    <select name="patientSex" id="patientSex" required> 
+		<option value = ""> </option>
+		<option value = "male" <?php selectedCheck($row_product["sex"], "male"); ?>> Male </option>
+		<option value = "female" <?php selectedCheck($row_product["sex"], "female"); ?>> Female </option>
+		<option value = "perferNot" <?php selectedCheck($row_product["sex"], "perferNot"); ?>> Prefer Not To Say </option>
+	</select><br>
+    <label for="specialty">Specialty:</label><br>
+    <input type="text" id="specialty" name="specialty" value="<?php echo $row_product['specialty']; ?>"><br>
+    <label for="address">Address:</label><br>
+    <input type="text" id="address" name="address" value="<?php echo $row_product['address']; ?>"><br>
+    <label for="email">Email:</label><br>
+    <input type="text" id="email" name="email" value="<?php echo $row_product['email']; ?>"><br>
+    <label for="phone_num">Phone Number:</label><br>
+    <input type="text" id="phone_num" name="phone_num" value="<?php echo $row_product['phone_num']; ?>"><br><br>
+    <input type="submit" value="Submit">
+</form>
+</center>
 	</table>
     <table align="center">
         <tr>
@@ -96,10 +96,11 @@
             </td>
         </tr>
     <p align="center" style="font-family: monospace;"> Hospital Management brought to you by Baker and Callum. <br> Logo From Wikimedia Commons<br> 2024 No Rights Reserved...<p>
-<?php
 
+<?php
+}
 	}
+}
 ?>
-</center>
 </body>
 </html>

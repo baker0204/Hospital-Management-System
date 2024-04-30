@@ -27,7 +27,7 @@
         <li class="menu-item"><a href="#" class="drp"> Appointment Management </a>
             <div class="menu-content">
                 <a href="newappoint.php">New Appointment</a><br>
-				<a href="removeAppt.php">Remove Appointment</a><br>
+                <a href="removeAppt.php">Remove Appointment</a><br>
                 <a href="viewappoint.php">View All Appointments</a><br>
             </div>
         </li>
@@ -50,29 +50,30 @@
 	<h1> All Patients </h1>
 	<table style="border:1px solid black;">
 		<th> Name </th>
-		<th> Date of Birth </th>
 		<th> Sex </th>
-		<th> Phone Number </th>
-		<th> Emergency Contact </th>
+		<th> Specialty </th>
 		<th> Address </th>
+		<th> Email </th>
+		<th> Phone Number </th>
+		
 	 <?php
 		$i = 0;
-		$sql_product="SELECT * FROM patient_table";
+		$sql_product="SELECT * FROM doctor_table";
 		$result_product=$connect->query($sql_product);
 		while($row_product = $result_product->fetch_assoc())
 		{
 	?>
 			<tr style="border-top:1px solid black;">
 				<td style="border-right:1px solid black;"> <?php echo $row_product["name"]?> </td>
-				<td style="border-right:1px solid black;"> <?php echo $row_product["dob"]?> </td>
 				<td style="border-right:1px solid black;"> <?php echo $row_product["sex"]?> </td>
-				<td style="border-right:1px solid black;"> <?php echo $row_product["phone_num"]?> </td>
-				<td style="border-right:1px solid black;"> <?php echo $row_product["em_contact"]?> </td>
+				<td style="border-right:1px solid black;"> <?php echo $row_product["specialty"]?> </td>
 				<td style="border-right:1px solid black;"> <?php echo $row_product["address"]?> </td>
+				<td style="border-right:1px solid black;"> <?php echo $row_product["email"]?> </td>
+				<td style="border-right:1px solid black;"> <?php echo $row_product["phone_num"]?> </td>
 				<td>
-					<form method="POST" action="updatepatient.php"> 
-						<input id="pid" name="pid" type="text" style="display:none;" value="<?php echo $row_product['pid']?>"/>
-						<input type="submit" value="Update Patient"/>
+					<form method="POST" action="updatedoctor.php"> 
+						<input id="did" name="did" type="text" style="display:none;" value="<?php echo $row_product['did']?>"/>
+						<input type="submit" value="Update Doctor"/>
 					</form>
 				</td>
 			</tr>

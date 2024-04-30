@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <?php
-	include ("db_connect.php");
+    include ('db_connect.php');
 	session_start();
-	$roles = array("A", "D");
+	$roles = array("A", "P", "D");
 	if(!in_array($_SESSION['role'], $roles)) //everyone who has been verified can access this page
 	{
 		echo "You do not have permission to access this page or you are not properly logged in. <a href='index.php' >Login Again</a> ";
@@ -12,9 +12,16 @@
 	}
 	else
 	{
+		$aid = $_POST["aid"] ?? null;
+		$sql_product="SELECT * FROM appointment_table";
+		$result_product=$connect->query($sql_product);
+		while($row_product = $result_product->fetch_assoc())
+		{
+			if ($row_product["aid"] == $aid)
+			{
 ?>
 <head>
-    <title>Hospital Manager</title>
+    <title>New Appointment</title>
     <link rel="stylesheet" href="css/css.css"/>
     <!--<script type="text/javascript" src="js/js.js"></script>-->
 </head>
@@ -39,6 +46,7 @@
                 <a href="viewpatients.php">View All Patients</a><br>
             </div>
         </li>
+
         <li class="menu-item"><a href="#" class="drp">Doctor Management </a>
             <div class="menu-content">
                 <a href="adddoctor.php">Add Doctor</a><br>
@@ -47,39 +55,20 @@
             </div>
         </li>
     </ul>
-	<h1> All Patients </h1>
-	<table style="border:1px solid black;">
-		<th> Name </th>
-		<th> Date of Birth </th>
-		<th> Sex </th>
-		<th> Phone Number </th>
-		<th> Emergency Contact </th>
-		<th> Address </th>
-	 <?php
-		$i = 0;
-		$sql_product="SELECT * FROM patient_table";
-		$result_product=$connect->query($sql_product);
-		while($row_product = $result_product->fetch_assoc())
-		{
-	?>
-			<tr style="border-top:1px solid black;">
-				<td style="border-right:1px solid black;"> <?php echo $row_product["name"]?> </td>
-				<td style="border-right:1px solid black;"> <?php echo $row_product["dob"]?> </td>
-				<td style="border-right:1px solid black;"> <?php echo $row_product["sex"]?> </td>
-				<td style="border-right:1px solid black;"> <?php echo $row_product["phone_num"]?> </td>
-				<td style="border-right:1px solid black;"> <?php echo $row_product["em_contact"]?> </td>
-				<td style="border-right:1px solid black;"> <?php echo $row_product["address"]?> </td>
-				<td>
-					<form method="POST" action="updatepatient.php"> 
-						<input id="pid" name="pid" type="text" style="display:none;" value="<?php echo $row_product['pid']?>"/>
-						<input type="submit" value="Update Patient"/>
-					</form>
-				</td>
-			</tr>
-	<?php
-		}
-	?>
-	</table>
+<center>
+<form method="post" action="apptDB.php">
+        <h2 style="font-family: monospace;"> Appointment Information</h2>
+				Name: <input name="patientName" id="patientName" value="<?php echo $row_product['patient_name']; ?>"/> 
+				Date of Appointment: <input type="datetime-local" name="appdate" id="appdate" value="<?php echo $row_product['date_time']; ?>"/><br><br>
+				Preffered Doctor: <input id="docname" name="docname" value="<?php echo $row_product['doctor_name']; ?>"/><br><br>
+                Reasons For Appointment: <textarea name="info" id="info"><?php echo $row_product['info']; ?></textarea><br>
+                <center>
+                <br><br>
+			    <input type="submit" value="submit">
+			    </center>
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</form>
+    	</table>
     <table align="center">
         <tr>
             <td>
@@ -96,9 +85,11 @@
             </td>
         </tr>
     <p align="center" style="font-family: monospace;"> Hospital Management brought to you by Baker and Callum. <br> Logo From Wikimedia Commons<br> 2024 No Rights Reserved...<p>
-<?php
 
+<?php
 	}
+		}
+		}
 ?>
 </center>
 </body>
