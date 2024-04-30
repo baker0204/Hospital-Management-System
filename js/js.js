@@ -19,9 +19,8 @@ function add(div, divCounter)
 	var br = document.createElement('br');
 	container.appendChild(br);
 	
-	childNum = container.childElementCount;
 	var counter = document.getElementById(divCounter);
-	counter.innerHTML = childNum
+	counter.value = container.childElementCount;
 }
 
 function remove(div)

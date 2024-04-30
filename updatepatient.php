@@ -212,7 +212,7 @@
 			</div>
 			<h2> Others</h2>
 			List any medical history that has not been mentioned on the form<br>
-			<textarea name="history" id="history" display="hidden"></textarea> <br>
+			<textarea name="history" id="history"><?php echo $row_product['other']; ?></textarea> <br>
 			<center>
 			<input type="submit" value="submit">
 			</center>
